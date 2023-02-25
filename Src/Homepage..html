@@ -22,9 +22,7 @@
             json.map((element) => {
                 if (`${element.language}` !== 'null'){ langarray.push(`${element.language}`);
                 }});
-
             findMostFrequent(langarray);
-
             if (langarray.length === 0)
             {
                 return alert('Couldnt determine users favourite language');
