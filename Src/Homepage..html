@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Github User's Favourite Language Checker</title>
+</head>
+<body>
+<fieldset>
+    <legend>Enter a Github Username</legend>
+    <input type ="text" id = "usernameGet" placeholder="Username"/>
+    <button type="button" id="btnGet" onclick="getRepositories()">Retrieve</button>
+</fieldset>
+
+<script>
+    async function getRepositories(){
+        const username = document.getElementById("usernameGet").value;
+        const endpoint = new URL(`https://api.github.com/users/${username}/repos`)
+        const response = await fetch (endpoint);
+        if (response.ok) {
+            const json = await response.json();
+            const langarray = [];
+            json.map((element) => {
+                if (`${element.language}` !== 'null'){ langarray.push(`${element.language}`);
+                }});
+
+            findMostFrequent(langarray);
+
+            if (langarray.length === 0)
+            {
+                return alert('Couldnt determine users favourite language');
+            }
+        }
+        else  {
+            return alert('Please enter a valid Github Username');
+        }
+        function findMostFrequent(arr) {
+            let mf = 1;
+            let m = 0;
+            let item;
+
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = i; j < arr.length; j++) {
+                    if (arr[i] == arr[j]) {
+                        m++;
+                        if (m > mf) {
+                            mf = m;
+                            item = arr[i];
+                        }
+                    }
+                }
+                m = 0;
+            }
+            return console.log(item);
+        }
+    }
+</script>
+<legend>Madhuri print results here : </legend>
+</body>
+</html>
