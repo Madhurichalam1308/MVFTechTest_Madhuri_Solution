@@ -11,12 +11,16 @@ async function getRepositories() {
             }
         });
         findMostFrequent(langarray);
+
+        document.getElementById("ret").innerHTML = "Entered Github User's favourite programming language is :" + findMostFrequent(langarray);
+
         if (langarray.length === 0) {
             return alert('Couldnt determine users favourite language');
         }
     } else {
         return alert('Please enter a valid Github Username');
     }
+}
     function findMostFrequent(arr) {
         let mf = 1;
         let m = 0;
@@ -33,6 +37,5 @@ async function getRepositories() {
             }
             m = 0;
         }
-        return console.log(item);
+        return item;
     }
-}
