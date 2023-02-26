@@ -50,16 +50,15 @@ I'd like to click a button which returns the selected users favourite programmin
 - Deploy to Netlify afer completing these improvements
 
 # Design Idea
-Used a simple HTML 
+Used a simple HTML for the webpage design and the code for the ogic is embedded as a Javascript within the HTML
+
 
 # Running locally and Setup
 1. Clone this repository
+2. Run the Homepage.html using any browser 
 
 
-# How To Run (Locally)
 
 
-
-# Running Tests after Setup is complete
 
 
